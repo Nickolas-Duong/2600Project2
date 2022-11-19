@@ -4,21 +4,22 @@
 #include<ctype.h>
  
 
-// 10 functions
-void getNumber_of_day_onTrip(int); // input the number of day for the trip
-void getDepartureAndArrivalTimes(double , double ); // input the departure time and arrival time
-void getRoundTripAirfare(double , double); // input the round trip Airfare and keep track with total expenses
-void getCarRentals(double , int, double); // input the number of car rentals and fee for each car =>> keep track with total expenses
-void getPrivateVehicleUsed(double , int); // input the number of miles => (miles * amount) + total expenses
-void getParkingFees(int, double , double , double , double , double ); // keep track all variables in function following the requirements
-void getTaxiFees(int, double , double , double , double , double );
-void getConferenceAndRegistrationFees(double , double );
-void getHotelFees(int, double , double , double , double , double );
-void getMealFees(double , double , double , double , double , double , double);
+// functions
+int getNumber_of_day_on_Trip(void); // input the number of day for the trip
+double get_Departure_Time(void); // input the departure time 
+double get_Arrival_Time(void); // input the arrival time
+double get_Round_Trip_Airfare(void); // input the round trip Airfare and keep track with total expenses
+double get_Car_Rentals(void); // input the number of car rentals and fee for each car =>> keep track with total expenses
+double get_Private_Vehicle_Used(void); // input the number of miles => (miles * amount) + total expenses
+void get_Parking_Fees(int, double*, double*, double*, double* ); // keep track all variables in function following the requirements
+void get_Taxi_Fees(int, double*, double*, double*, double* );
+double get_Conference_And_Registration_Fees(void);
+void get_Hotel_Fees(int, double*, double*, double*, double* );
+void get_Meal_Fees(double*, double, double*, double*, double*, double);
 
 
 // printing function
-void displayTotals(int, double, double, double, double, double, double); // all the variables we keep track above will be printed in this function
+void displayTotals(int, double, double, double*, double*, double*, double*); // all the variables we keep track above will be printed in this function
 
 // handle yes no input
 char inputChar( char letter){
@@ -64,29 +65,30 @@ int main(int argc, char*argv[]){
     int number_of_Car_rentals,  number_Miles_driven = 0;
     double Parking_fees, number_round_trip_airfare, taxi_fees , hotel_expenses, meal_fees, Conference_Registration_fees, car_rental_fees;
 
-    getNumber_of_day_onTrip(total_days);
-    getDepartureAndArrivalTimes(departure_time, arrival_time);
-    getRoundTripAirfare(total_expenses, number_round_trip_airfare);
-    getCarRentals(total_expenses, number_of_Car_rentals, car_rental_fees);
-    getPrivateVehicleUsed(total_expenses, number_Miles_driven);
+    total_days = getNumber_of_day_on_Trip();
+    departure_time = get_Departure_Time();
+    arrival_time = get_Arrival_Time();
+    total_expenses += get_Round_Trip_Airfare();
+    total_expenses += get_Car_Rentals();
+    total_expenses += get_Private_Vehicle_Used();
 
-    getParkingFees(total_days, total_expenses, Parking_fees, total_allowable_expenses, total_refund, total_amount_saved);
+    get_Parking_Fees(total_days, &total_expenses, &total_allowable_expenses, &total_refund, &total_amount_saved);
 
-    getTaxiFees(total_days,total_expenses, taxi_fees, total_allowable_expenses, total_refund, total_amount_saved);
+    get_Taxi_Fees(total_days, &total_expenses, &total_allowable_expenses, &total_refund, &total_amount_saved);
 
-    getConferenceAndRegistrationFees(total_expenses, Conference_Registration_fees);
+    total_expenses = get_Conference_And_Registration_Fees();
 
-    getHotelFees(total_days, total_expenses, hotel_expenses, total_allowable_expenses, total_refund, total_amount_saved);
+    get_Hotel_Fees(total_days, &total_expenses, &total_allowable_expenses, &total_refund, &total_amount_saved);
                  
-    getMealFees(total_expenses, meal_fees, departure_time, total_allowable_expenses, total_refund, total_amount_saved, arrival_time);       
+    get_Meal_Fees(&total_expenses, departure_time, &total_allowable_expenses, &total_refund, &total_amount_saved, arrival_time);       
     
     displayTotals(total_days,     
                   departure_time, 
                   arrival_time, 
-                  total_expenses, 
-                  total_allowable_expenses, 
-                  total_refund, 
-                  total_amount_saved);
+                  &total_expenses, 
+                  &total_allowable_expenses, 
+                  &total_refund, 
+                  &total_amount_saved);
 
     return 0;
 }
