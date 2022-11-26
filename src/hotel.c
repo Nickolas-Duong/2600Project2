@@ -2,7 +2,8 @@
 
 double get_conference_fee()
 {
-  return 0;
+  printf("Please enter conference or registration fee: (if none, type 0)\n");
+  return input_fee(MINIMUM_FEE);
 }
 
 double get_hotel_fee(int total_days, 

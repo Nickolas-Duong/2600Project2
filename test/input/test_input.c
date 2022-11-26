@@ -6,5 +6,5 @@ int main()
 
   printf("Input a value:\n");
   value = input_fee(0);
-  printf("Value is: %lf", value);
+  printf("Value is: %0.2lf", value);
 }

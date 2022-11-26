@@ -35,7 +35,7 @@ double input_fee(double minimum)
   {
     scanf("%lf", &fee);
     if (fee < minimum)
-      printf("Fee can't be less than %lf!!\n", minimum);
+      printf("Fee can't be less than %0.2lf!!\n", minimum);
   }
   while (fee < minimum);
 
