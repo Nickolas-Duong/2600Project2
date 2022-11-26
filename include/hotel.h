@@ -15,7 +15,7 @@
 #define ALLOWABLE_HOTEL_EXPENSES 90.00
 
 double get_conference_fee();
-double get_hotel_fee(int total_days, 
+void get_hotel_fee(int total_days, 
                      double *total_expenses,
                      double *total_allowable_expenses,
                      double *total_refund,

@@ -17,10 +17,6 @@ double get_conference_fee(void);
 void get_hotel_fee(int, double*, double*, double*, double* );
 void get_meal_fee(double*, double, double*, double*, double*, double);
 
-
-// printing function
-void display_total(int, double, double, double*, double*, double*, double*); // all the variables we keep track above will be printed in this function
-
 int main(int argc, char const *argv[]){
     // variables for general information
     double total_expenses = 0, total_allowable_expenses = 0, total_refund = 0, total_amount_saved = 0;
@@ -51,10 +47,10 @@ int main(int argc, char const *argv[]){
     display_total(total_days,     
                   departure_time, 
                   arrival_time, 
-                  &total_expenses, 
-                  &total_allowable_expenses, 
-                  &total_refund, 
-                  &total_amount_saved);
+                  total_expenses, 
+                  total_allowable_expenses, 
+                  total_refund, 
+                  total_amount_saved);
 
     return 0;
 }
