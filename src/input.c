@@ -1,6 +1,5 @@
 #include "../include/input.h"
 
-// handle yes no input
 char input_char( char letter){
     letter = getchar();
     while(!(toupper(letter) == 'Y' || toupper(letter) == 'N')){
@@ -10,7 +9,6 @@ char input_char( char letter){
     return letter;
 }
 
-//handle the input for number of days or miles
 int input_dec_number(int number){
     scanf("%d", number);
     while(number<1){
@@ -20,7 +18,6 @@ int input_dec_number(int number){
     return number;
 }
 
-// 00:00 - 23:59: valid time
 double input_time(double time){
     scanf("%f", time);
     while(time<0 || time > 23.59){
@@ -28,4 +25,19 @@ double input_time(double time){
         scanf("%f", time);
     }
     return time;
+}
+
+double input_fee(double minimum)
+{
+  double fee;
+
+  do
+  {
+    scanf("%lf", &fee);
+    if (fee < minimum)
+      printf("Fee can't be less than %lf!!\n", minimum);
+  }
+  while (fee < minimum);
+
+  return fee;
 }
