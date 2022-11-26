@@ -21,36 +21,6 @@ void get_meal_fee(double*, double, double*, double*, double*, double);
 // printing function
 void display_total(int, double, double, double*, double*, double*, double*); // all the variables we keep track above will be printed in this function
 
-// handle yes no input
-char input_char( char letter){
-    letter = getchar();
-    while(!(toupper(letter) == 'Y' || toupper(letter) == 'N')){
-        printf("The input should be 'Y' for Yes or 'N' for No!\n");
-        letter = getchar();
-    }
-    return letter;
-}
-
-//handle the input for number of days or miles
-int input_dec_number(int number){
-    scanf("%d", number);
-    while(number<1){
-        printf("Number should be greater than 1 and can not be negative!!\n");
-        scanf("%d", number);
-    }
-    return number;
-}
-
-// 00:00 - 23:59: valid time
-double input_time(double time){
-    scanf("%f", time);
-    while(time<0 || time > 23.59){
-        printf("Please enter the valid time!! \n");
-        scanf("%f", time);
-    }
-    return time;
-}
-
 int main(int argc, char const *argv[]){
     // variables for general information
     double total_expenses = 0, total_allowable_expenses = 0, total_refund = 0, total_amount_saved = 0;
