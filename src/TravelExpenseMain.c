@@ -38,7 +38,7 @@ int main(int argc, char const *argv[]){
 
     get_taxi_fee(total_days, &total_expenses, &total_allowable_expenses, &total_refund, &total_amount_saved);
 
-    total_expenses = get_conference_fee();
+    total_expenses += get_conference_fee();
 
     get_hotel_fee(total_days, &total_expenses, &total_allowable_expenses, &total_refund, &total_amount_saved);
                  
