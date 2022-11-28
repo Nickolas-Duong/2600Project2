@@ -1,5 +1,20 @@
 #include "../include/day.h"
+//Validate time input
+int validTime(int hours, int min)
+{
+    int ret = 0;
+    if(hours > 24)
+    {
+        ret = 1;
+    }
 
+    if(min > 60)
+    {
+        ret = 1;
+    }
+
+    return ret;
+}
 //Set Day Number
 void setDayNum(Day * day, int i)
 {

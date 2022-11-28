@@ -7,16 +7,19 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
-
+#include <stdbool.h>
 struct Day
 {
-    int dayNum;
+    int dayNum, hour, minutes;
     double totalExpenses;
-    double allowedExpenses; 
+    double allowedExpenses;
+    bool arrival, departure;
+
 };
 
 typedef struct Day Day;
 
+int validTime(int hours, int min);
 void setDayNum(Day * day, int i);
 int getDayNum(Day * day);
 void setTotalExpense(Day * day, double d);
