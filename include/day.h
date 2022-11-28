@@ -21,10 +21,10 @@ void setDayNum(Day * day, int i);
 int getDayNum(Day * day);
 void setTotalExpense(Day * day, double d);
 double getTotalExpense(Day * day);
-void addTotalExpense(Day * day, double d,...);
+void addTotalExpense(Day * day, double num);
 void setAllowedExpense(Day * day, double d);
 double getAllowedExpense(Day * day);
-void addAllowedExpense(Day*  day, double d,...);
+void addAllowedExpense(Day*  day, double num);
 void printExpenses(Day * day);
 
 #endif

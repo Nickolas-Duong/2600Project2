@@ -23,21 +23,9 @@ double getTotalExpense(Day * day)
     return day->totalExpenses;
 }
 
-void addTotalExpense(Day * day, double d,...)
+void addTotalExpense(Day * day, double num)
 {
-    va_list temp;
-
-    //initialize list
-    va_start(temp, d);
-
-    //add all arguments to total expenses
-    for (int i =0; i < d; i++)
-    {
-        day->totalExpenses += va_arg(temp, double);
-    }
-
-    //remove list from memory
-    va_end(temp);
+    day->totalExpenses += num;
 }
 
 //Set allowed expense
@@ -53,21 +41,9 @@ double  getAllowedExpense(Day * day)
 }
 
 //Add all allowed Expenses
-void addAllowedExpense(Day * day, double d,...)
+void addAllowedExpense(Day * day, double num)
 {
-    va_list temp;
-
-    //initialize list
-    va_start(temp, d);
-
-    //add all arguments to total expenses
-    for (int i =0; i < d; i++)
-    {
-        day->allowedExpenses += va_arg(temp, double);
-    }
-
-    //remove list fromm memory
-    va_end(temp);
+    day->allowedExpenses += num;
 }
 
 //Show total expense of the day in terminal

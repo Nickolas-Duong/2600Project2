@@ -24,10 +24,21 @@ int main(int argc, char * argv[])
     {
         for(int i = 0; i < numDays; i++)
         {
-            setDayNum(dayPtr, (i+1));
-            setTotalExpense(dayPtr, 2.0);
-            setAllowedExpense(dayPtr, 10.0);
-            dayPtr++;
+            if(i % 2 == 0)
+            {
+                setDayNum(dayPtr, (i+1));
+                setTotalExpense(dayPtr, 10.0);
+                setAllowedExpense(dayPtr, 2.0);
+                dayPtr++;
+            }
+            else
+            {
+                setDayNum(dayPtr, (i+1));
+                addTotalExpense(dayPtr, 10.5);
+                addTotalExpense(dayPtr, 60.7);
+                addAllowedExpense(dayPtr, 10.5);
+                dayPtr++;
+            }
         }
 
         dayPtr = days;
