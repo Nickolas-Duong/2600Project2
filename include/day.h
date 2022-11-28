@@ -22,7 +22,6 @@ void addTotalExpense(Day *day, double d,...);
 void setAllowedExpense(Day *day, double d);
 double getAllowedExpense(Day *day);
 void addAllowedExpense(Day *day, double d,...);
-void printTotalExpense(Day *day);
-void printAllowedExpense(Day *day);
+void printExpenses(Day *day);
 
 #endif
