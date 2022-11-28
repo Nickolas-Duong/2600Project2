@@ -1,29 +1,29 @@
 #include "../include/day.h"
 
 //Set Day Number
-void setDayNum(Day *day, int i)
+void setDayNum(Day * day, int i)
 {
     day->dayNum = i;
 }
 
-int getDayNum(Day *day)
+int getDayNum(Day * day)
 {
     return day->dayNum;
 }
 
 //Set Total Expenses to explicit Value
-void setTotalExpense(Day *day, double d)
+void setTotalExpense(Day * day, double d)
 {
     day->totalExpenses = d;
 }
 
 //Return total expenses
-double getTotalExpense(Day *day)
+double getTotalExpense(Day * day)
 {
     return day->totalExpenses;
 }
 
-void addTotalExpense(Day *day, double d,...)
+void addTotalExpense(Day * day, double d,...)
 {
     va_list temp;
 
@@ -41,19 +41,19 @@ void addTotalExpense(Day *day, double d,...)
 }
 
 //Set allowed expense
-void setAllowedExpense(Day *day, double d)
+void setAllowedExpense(Day * day, double d)
 {
     day->allowedExpenses = d;
 }
 
 //Return total allowed expenses
-double  getAllowedExpense(Day *day)
+double  getAllowedExpense(Day * day)
 {
     return day->allowedExpenses;
 }
 
 //Add all allowed Expenses
-void addAllowedExpense(Day *day, double d,...)
+void addAllowedExpense(Day * day, double d,...)
 {
     va_list temp;
 
@@ -71,9 +71,9 @@ void addAllowedExpense(Day *day, double d,...)
 }
 
 //Show total expense of the day in terminal
-void printExpenses(Day *day)
+void printExpenses(Day * day)
 {
-    printf("Day &d\n", day->dayNum);
-    printf("Total Expenses: %.2f\n", day->totalExpenses);
-    printf("Allowed Expenses: &.2f\n", day->allowedExpenses);
+    printf("Day %d\n", getDayNum(day));
+    printf("Total Expenses: %.2f\n", getTotalExpense(day));
+    printf("Allowed Expenses: %.2f\n", getAllowedExpense(day));
 }
