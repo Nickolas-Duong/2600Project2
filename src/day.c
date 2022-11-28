@@ -15,6 +15,13 @@ int validTime(int hours, int min)
 
     return ret;
 }
+
+//Set Arrival bool
+void setArrival(Day * day, bool type)
+{
+    day->arrival = type;
+}
+
 //Set Day Number
 void setDayNum(Day * day, int i)
 {
