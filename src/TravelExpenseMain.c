@@ -21,7 +21,7 @@ int main(int argc, char const *argv[]){
     // variables for general information
     double total_expenses = 0, total_allowable_expenses = 0, total_refund = 0, total_amount_saved = 0;
     double departure_time, arrival_time;
-    int total_days;
+    int total_days = argv[1];
 
     // variables for each task to return
     int number_of_Car_rentals,  number_Miles_driven = 0;
