@@ -1,5 +1,16 @@
 #include "../include/day.h"
 
+//Set Day Number
+void setDayNum(Day *day, int i)
+{
+    day->dayNum = i;
+}
+
+int getDayNum(Day *day)
+{
+    return day->dayNum;
+}
+
 //Set Total Expenses to explicit Value
 void setTotalExpense(Day *day, double d)
 {
@@ -25,6 +36,7 @@ void addTotalExpense(Day *day, double d,...)
         day->totalExpenses += va_arg(temp, double);
     }
 
+    //remove list from memory
     va_end(temp);
 }
 
@@ -54,5 +66,14 @@ void addAllowedExpense(Day *day, double d,...)
         day->allowedExpenses += va_arg(temp, double);
     }
 
+    //remove list fromm memory
     va_end(temp);
+}
+
+//Show total expense of the day in terminal
+void printExpenses(Day *day)
+{
+    printf("Day &d\n", day->dayNum);
+    printf("Total Expenses: %.2f\n", day->totalExpenses);
+    printf("Allowed Expenses: &.2f\n", day->allowedExpenses);
 }
