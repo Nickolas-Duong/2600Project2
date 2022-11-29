@@ -3,12 +3,7 @@
 int validTime(int hours, int min)
 {
     int ret = 0;
-    if(hours > 24)
-    {
-        ret = 1;
-    }
-
-    if(min > 60)
+    if(hours > 24 || min > 60 || hours == 24 && min > 0 || hours < 0 || min < 0)
     {
         ret = 1;
     }
