@@ -37,7 +37,6 @@ void setTime(Day * day)
     {
         day->hour = hour;
         day->minutes = min;
-        printf("\nThe time is: %d:%d\n", day->hour, day->minutes);
     }
 }
 
@@ -103,6 +102,16 @@ void addAllowedExpense(Day * day, double num)
 void printExpenses(Day * day)
 {
     printf("Day %d\n", getDayNum(day));
+    if(day->arrival)
+    {
+    printf("The time of arrivalis: %d:%d\n", day->hour, day->minutes);
+    }
+    
+    else if(day->departure)
+    {
+    printf("The time departure is: %d:%d\n", day->hour, day->minutes);
+    }
+
     printf("Total Expenses: %.2f\n", getTotalExpense(day));
     printf("Allowed Expenses: %.2f\n", getAllowedExpense(day));
 }
