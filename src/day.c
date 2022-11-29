@@ -22,6 +22,12 @@ void setArrival(Day * day, bool type)
     day->arrival = type;
 }
 
+//Set departure bool
+void setDeparture(Day * day, bool type)
+{
+    day->departure = type;
+}
+
 //Set Day Number
 void setDayNum(Day * day, int i)
 {
