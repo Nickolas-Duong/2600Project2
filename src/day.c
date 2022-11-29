@@ -16,6 +16,31 @@ int validTime(int hours, int min)
     return ret;
 }
 
+//Set time for day via input
+void setTime(Day * day)
+{
+    char input[100] = {0};
+    int hour, min, validate;
+
+    printf("\nEnter the Arrival or departure time in \"HH:MM\" format: ");
+    fgets(input, 100, stdin);
+
+    sscanf(input, "%d:%d", &hour, &min);
+
+    validate = validTime(hour, min);
+
+    if(validate != 0)
+    {
+        printf("\nInvalid Time. . . please try again. . .\n");
+    }
+    else
+    {
+        day->hour = hour;
+        day->minutes = min;
+        printf("\nThe time is: %d:%d\n", day->hour, day->minutes);
+    }
+}
+
 //Set Arrival bool
 void setArrival(Day * day, bool type)
 {

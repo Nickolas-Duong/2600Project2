@@ -20,6 +20,7 @@ struct Day
 typedef struct Day Day;
 
 int validTime(int hours, int min);
+void setTime(Day * day);
 void setArrival(Day * day, bool type);
 void setDeparture(Day * day, bool type);
 void setDayNum(Day * day, int i);
