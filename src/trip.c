@@ -1,4 +1,5 @@
 #include "../include/trip.h"
+#include "../include/input.h"
 
 double trip(double total_expenses){
     char option = 'z';
@@ -40,7 +41,7 @@ double get_Car_Rentals(){
     double carRentals;
 
     printf("How much was the car rental:");
-    scanf("%lf", &carRentals);
+    carRentals = input_fee(0);
 
     return carRentals;
 }
@@ -49,7 +50,7 @@ double get_Private_Vehicle_Used(){
     double gasCost;
 
     printf("How much was the gas:");
-    scanf("%lf", &gasCost);
+    gasCost = input_fee(0);
 
     return gasCost;
 }
@@ -58,7 +59,7 @@ double get_Round_Trip_Airfare(){
     double airplaneCost;
 
     printf("How much was the ticket:");
-    scanf("%lf", &airplaneCost);
+    airplaneCost = input_fee(0);
 
     return airplaneCost;
 }
@@ -67,7 +68,7 @@ double get_Parking_Fees(){
     double parkingFees;
 
     printf("How much was parking:");
-    scanf("%lf", &parkingFees);
+    parkingFees = input_fee(0);
 
     return parkingFees;
 }
@@ -76,7 +77,7 @@ double get_Taxi_Fees(){
     double taxiFees;
 
     printf("How much was parking:");
-    scanf("%lf", &taxiFees);
+    taxiFees = input_fee(0);
 
     return taxiFees;
 }
