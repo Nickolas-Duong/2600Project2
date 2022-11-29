@@ -17,11 +17,19 @@
 #define ALLOWABLE_LUNCH 12.00
 #define ALLOWABLE_DINNER 16.00
 
-double get_Meal_Costs();
-void get_hotel_fee(int total_days, 
+char get_Meal_type();
+void get_Food_expenses(int total_meals,
+                       int total_allowed_meals, 
                      double *total_expenses,
                      double *total_allowable_expenses,
                      double *total_refund,
-                     double *total_amount_saved);
+                     double *total_amount_saved)
 
 #endif // FOOD_H
+
+double total_meals;
+char meal_type;
+double meal_cost;
+double total_expenses;
+double total_allowable_expenses;
+double total_refund;
