@@ -104,9 +104,9 @@ void printExpenses(Day * day)
     printf("Day %d\n", getDayNum(day));
     if(day->arrival)
     {
-    printf("The time of arrivalis: %d:%d\n", day->hour, day->minutes);
+    printf("The time of arrival is: %d:%d\n", day->hour, day->minutes);
     }
-    
+
     else if(day->departure)
     {
     printf("The time departure is: %d:%d\n", day->hour, day->minutes);

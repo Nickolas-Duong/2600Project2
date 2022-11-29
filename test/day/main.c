@@ -26,6 +26,9 @@ int main(int argc, char * argv[])
         {
             if(i % 2 == 0)
             {
+                setTime(dayPtr);
+                setArrival(dayPtr, true);
+                setDeparture(dayPtr, false);
                 setDayNum(dayPtr, (i+1));
                 setTotalExpense(dayPtr, 10.0);
                 setAllowedExpense(dayPtr, 2.0);
@@ -34,6 +37,9 @@ int main(int argc, char * argv[])
             else
             {
                 setDayNum(dayPtr, (i+1));
+                setTime(dayPtr);
+                setArrival(dayPtr, false);
+                setDeparture(dayPtr, true);
                 addTotalExpense(dayPtr, 10.5);
                 addTotalExpense(dayPtr, 60.7);
                 addAllowedExpense(dayPtr, 10.5);
