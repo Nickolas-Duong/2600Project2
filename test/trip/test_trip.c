@@ -5,7 +5,6 @@
 
 #include "../../include/trip.h"
 #include "../../include/display.h"
-#include "../../include/input.h"
 
 int main()
 {
