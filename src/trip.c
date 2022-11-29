@@ -8,7 +8,7 @@
 double trip(double total_expenses){
     int option;
 
-    while(option != '0'){
+    while(option != 0){
         printf("Input the number of the option you would like to input:\n");
         printf("1 - Car Rental Cost\n");
         printf("2 - Gas Cost\n");
