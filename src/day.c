@@ -20,23 +20,25 @@ int validTime(int hours, int min)
 void setTime(Day * day)
 {
     char input[100] = {0};
-    int hour, min, validate;
-
-    printf("\nEnter the Arrival or departure time in \"HH:MM\" format: ");
-    fgets(input, 100, stdin);
-
-    sscanf(input, "%d:%d", &hour, &min);
-
-    validate = validTime(hour, min);
-
-    if(validate != 0)
+    int hour, min, validate = 1;
+    while(validate != 0)
     {
-        printf("\nInvalid Time. . . please try again. . .\n");
-    }
-    else
-    {
-        day->hour = hour;
-        day->minutes = min;
+        printf("\nEnter the Arrival or departure time in \"HH:MM\" format: ");
+        fgets(input, 100, stdin);
+
+        sscanf(input, "%d:%d", &hour, &min);
+
+        validate = validTime(hour, min);
+
+        if(validate != 0)
+        {
+            printf("\nInvalid Time. . . please try again. . .\n");
+        }
+        else
+        {
+            day->hour = hour;
+            day->minutes = min;
+        }
     }
 }
 
@@ -109,7 +111,7 @@ void printExpenses(Day * day)
 
     else if(day->departure)
     {
-    printf("The time departure is: %d:%d\n", day->hour, day->minutes);
+    printf("The time of departure is: %d:%d\n", day->hour, day->minutes);
     }
 
     printf("Total Expenses: %.2f\n", getTotalExpense(day));
