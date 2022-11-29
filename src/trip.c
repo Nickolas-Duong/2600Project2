@@ -53,65 +53,95 @@ double get_Car_Rentals(){
             scanf("%lf", &temp);
             carRentals += temp;
         }
-    }while (option != '0');
+    }while (option != '2');
 
     return carRentals;
 }
 
 double get_Private_Vehicle_Used(){
     char option;
+    double gasCost;
 
-    printf("Did you use a private car?\n1 - Yes\n2 - No");
-    option = getChar();
-    getChar();
+    do{
+        printf("Select an option:");
+        printf("1 - Input a Gas Total");
+        printf("2 - Exit");
+        option = getChar();
+        getChar();
 
-    if(option == '1'){
-        double price;
-        printf("How much did gas cost?");
-        scanf("%lf", &price);
-        return price;
-    }else{
-        return 0;
-    }
+        if(option == '1'){
+            double temp = 0;
+            printf("How much was the gas:");
+            scanf("%lf", &temp);
+            gasCost += temp;
+        }
+    }while (option != '2');
+
+    return gasCost;
 }
 
 double get_Round_Trip_Airfare(){
     char option;
+    double airplaneCost;
 
-    printf("Did you use a plane?\n1 - Yes\n2 - No");
-    option = getChar();
-    getChar();
+    do{
+        printf("Select an option:");
+        printf("1 - Input an Airplane Ticket Cost");
+        printf("2 - Exit");
+        option = getChar();
+        getChar();
 
-    if(option == '1'){
-        double price;
-        printf("How much did one ticket cost?");
-        scanf("%lf", &price);
-        price *= 2;
-        return price;
-    }else{
-        return 0;
-    }
+        if(option == '1'){
+            double temp = 0;
+            printf("How much was the ticket:");
+            scanf("%lf", &temp);
+            airplaneCost += temp;
+        }
+    }while (option != '2');
+
+    return airplaneCost;
 }
 
-void get_Parking_Fees(int total_days, double* total_expenses, double* total_allowable_expenses, double* total_refund, double* total_amount_saved){
-    double price = 0;
-    printf("How much was parking per day?");
-    scanf("%lf", &price);
-    price *= total_days;
-    total_expenses += price;
-}
-
-void get_Taxi_Fees(int total_days, double* total_expenses, double* total_allowable_expenses, double* total_refund, double* total_amount_saved){
+double get_Parking_Fees(){
     char option;
-    
-    printf("Did you use a taxi?\n1 - Yes\n2 - No");
-    option = getChar();
-    getChar();
+    double parkingFees;
 
-    if(option == '1'){
-        double price = 0;
-        printf("How much the taxi?");
-        scanf("%lf", &price);
-        total_expenses += price;
-    }
+    do{
+        printf("Select an option:");
+        printf("1 - Input an Parking Fee");
+        printf("2 - Exit");
+        option = getChar();
+        getChar();
+
+        if(option == '1'){
+            double temp = 0;
+            printf("How much was parking:");
+            scanf("%lf", &temp);
+            parkingFees += temp;
+        }
+    }while (option != '2');
+
+    return parkingFees;
+}
+
+double get_Taxi_Fees(){
+    char option;
+    double taxiFees;
+
+    do{
+        printf("Select an option:");
+        printf("1 - Input an Taxi Fee");
+        printf("2 - Exit");
+        option = getChar();
+        getChar();
+
+        if(option == '1'){
+            double temp = 0;
+            printf("How much was parking:");
+            scanf("%lf", &temp);
+            taxiFees += temp;
+        }
+    }while (option != '2');
+
+    return taxiFees;
 }
