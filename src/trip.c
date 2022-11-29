@@ -5,13 +5,13 @@ double trip(double total_expenses){
     char option = 'z';
 
     while(option != '0'){
-        printf("Input the number of the option you would like to input:");
-        printf("1 - Car Rental Cost");
-        printf("2 - Gas Cost");
-        printf("3 - Taxi Cost");
-        printf("4 - Parking Fees");
-        printf("5 - Airfare Cost");
-        printf("0 - Exit");
+        printf("Input the number of the option you would like to input:\n");
+        printf("1 - Car Rental Cost\n");
+        printf("2 - Gas Cost\n");
+        printf("3 - Taxi Cost\n");
+        printf("4 - Parking Fees\n");
+        printf("5 - Airfare Cost\n");
+        printf("0 - Exit\n");
         option = getChar();
         getChar();
 
@@ -40,7 +40,7 @@ double trip(double total_expenses){
 double get_Car_Rentals(){
     double carRentals;
 
-    printf("How much was the car rental:");
+    printf("How much was the car rental:\n");
     carRentals = input_fee(0);
 
     return carRentals;
@@ -49,7 +49,7 @@ double get_Car_Rentals(){
 double get_Private_Vehicle_Used(){
     double gasCost;
 
-    printf("How much was the gas:");
+    printf("How much was the gas:\n");
     gasCost = input_fee(0);
 
     return gasCost;
@@ -58,7 +58,7 @@ double get_Private_Vehicle_Used(){
 double get_Round_Trip_Airfare(){
     double airplaneCost;
 
-    printf("How much was the ticket:");
+    printf("How much was the ticket:\n");
     airplaneCost = input_fee(0);
 
     return airplaneCost;
@@ -67,7 +67,7 @@ double get_Round_Trip_Airfare(){
 double get_Parking_Fees(){
     double parkingFees;
 
-    printf("How much was parking:");
+    printf("How much was parking:\n");
     parkingFees = input_fee(0);
 
     return parkingFees;
@@ -76,7 +76,7 @@ double get_Parking_Fees(){
 double get_Taxi_Fees(){
     double taxiFees;
 
-    printf("How much was parking:");
+    printf("How much was parking:\n");
     taxiFees = input_fee(0);
 
     return taxiFees;

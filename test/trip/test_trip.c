@@ -4,7 +4,6 @@
 #include<ctype.h>
 
 #include "../../include/trip.h"
-#include "../../include/display.h"
 
 int main()
 {
@@ -14,5 +13,5 @@ int main()
 
     expenses = trip(expenses);
 
-    display_total(5, 11, 11, expenses, 500, 0, 0);
+    printf("Total Travel Cost: %0.2lf", expenses);
 }
