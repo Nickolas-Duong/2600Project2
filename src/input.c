@@ -12,21 +12,26 @@ int validTime(int hours, int min)
     return ret;
 }
 
-char input_char( char letter){
-    letter = getchar();
-    while(!(toupper(letter) == 'Y' || toupper(letter) == 'N')){
-        printf("The input should be 'Y' for Yes or 'N' for No!\n");
+char input_char(){
+    char letter = getchar();
+
+    while(!isalpha(letter)){
+        printf("The input should be a letter!\n");
         letter = getchar();
     }
+
     return letter;
 }
 
-int input_dec_number(int number){
-    scanf("%d", number);
+int input_dec_number(){
+    int number;
+
+    scanf("%d", &number);
     while(number<1){
-        printf("Number should be greater than 1 and can not be negative!!\n");
-        scanf("%d", number);
+        printf("Number should be at least 1 and can not be negative!!\n");
+        scanf("%d", &number);
     }
+
     return number;
 }
 

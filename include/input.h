@@ -9,8 +9,8 @@
 
 typedef struct Day Day;
 
-char input_char( char letter); // handle yes no input
-int input_dec_number(int number); //handle the input for number of days or miles
+char input_char(); // handle yes no input
+int input_dec_number(); //handle the input for number of days or miles
 void input_time(Day * day); // 00:00 - 23:59: valid time
 int validTime(int hours, int min);
 

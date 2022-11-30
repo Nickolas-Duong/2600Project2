@@ -13,25 +13,14 @@
 #include "input.h"
 #include "day.h"
 
+typedef struct Day Day;
+
 #define MINIMUM_FEE 0.00
 #define ALLOWABLE_BREAKFAST 9.00
 #define ALLOWABLE_LUNCH 12.00
 #define ALLOWABLE_DINNER 16.00
 
-double total_meals;
-char meal_type;
-double meal_cost;
-double total_expenses;
-double total_allowable_expenses;
-double total_refund;
-
-
-char get_Meal_type();
-void get_Food_expenses(int total_meals,
-                       int total_allowed_meals, 
-                     double total_expenses,
-                     double total_allowable_expenses,
-                     double total_refund,
-                     double total_amount_saved);
+void get_each_meal_cost(Day * Day, int mealNum);
+void get_Food_expenses(Day * day);
 
 #endif // FOOD_H

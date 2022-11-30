@@ -74,6 +74,6 @@ double get_Parking_Fees(){
 }
 
 double get_Taxi_Fees(){
-    printf("How much was parking:\n");
+    printf("How much was the taxi:\n");
     return input_fee(MINIMUM_FEE);
 }

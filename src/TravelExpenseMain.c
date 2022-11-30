@@ -1,6 +1,6 @@
 #include "../include/day.h"
 #include "../include/display.h"
-//#include "../include/Food.h"
+#include "../include/Food.h"
 #include "../include/hotel.h"
 #include "../include/input.h"
 #include "../include/trip.h"
@@ -126,6 +126,9 @@ int main(int argc, char const *argv[]){
 
             //Add trip fees
             trip((dayPtr + i));
+
+            //Add Food Expenses
+            get_Food_expenses((dayPtr + i));
         }
 
         for(int i = 0; i < numDays; i++)
