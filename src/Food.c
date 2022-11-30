@@ -29,6 +29,45 @@ void get_each_meal_cost(Day * day, int mealNum)
     bool lunch = false;
     bool dinner = false;
 
+    if(day->arrival == true)
+    {
+        if(day->minutes >= 0 && day->hour < 8 || day->minutes == 0 && day->hour == 8)
+        {
+            breakfast = true;
+        }     
+        else if(day->minutes >= 0 && day->hour < 13 || day->minutes == 0 && day->hour == 13)
+        {
+            lunch = true;
+            breakfast = true;
+        }           
+        else if(day->minutes >= 0 && day->hour < 19 || day->minutes == 0 && day->hour == 19)
+        {
+            breakfast = true;
+            lunch = true;
+            dinner = true;
+        }
+
+
+    }
+    else if(day->departure == true)
+    {
+        if(day->minutes >= 0 && day->hour < 7 || day->minutes == 0 && day->hour == 7)
+        {
+            breakfast = true;
+        }        
+        else if(day->minutes >= 0 && day->hour != 12 || day->minutes == 0 && day->hour == 12)
+        {
+            lunch = true;
+            breakfast = true;
+        }
+        else if(day->minutes >= 0 && day->hour < 18|| day->minutes == 0 && day->hour == 18)
+        {
+            breakfast = true;
+            lunch = true;
+            dinner = true;
+        }
+
+    }
 
     do
     {
@@ -42,8 +81,6 @@ void get_each_meal_cost(Day * day, int mealNum)
         {
             printf("\n The company may cover up to $9.00 for breakfast. Input the amount spent on this meal \n");
             meal_cost = input_fee(MINIMUM_FEE);
-
-            breakfast = true;
 
             addTotalExpense(day, meal_cost);
             temp = temp - 1;
@@ -64,8 +101,6 @@ void get_each_meal_cost(Day * day, int mealNum)
             printf("\n The company may cover up to $12.00 for lunch. Input the amount spent on this meal \n");
             meal_cost = input_fee(MINIMUM_FEE);
 
-            lunch = true;
-
             addTotalExpense(day, meal_cost);
             temp = temp - 1;
             // scanf("%d", meal_cost);
@@ -84,8 +119,6 @@ void get_each_meal_cost(Day * day, int mealNum)
         {
             printf("\n The company may cover up to $16.00 for dinner. Input the amount spent on this meal \n");
             meal_cost = input_fee(MINIMUM_FEE);
-
-            dinner = true;
 
             addTotalExpense(day, meal_cost);
             temp = temp - 1;
