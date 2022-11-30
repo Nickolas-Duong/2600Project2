@@ -5,8 +5,10 @@
 
 #include "../include/trip.h"
 
-double trip(double total_expenses){
+void trip(Day * day){
     int option;
+    bool taxi = false;
+    bool parking = false;
 
     while(option != 0){
         printf("Input the number of the option you would like to input:\n");
@@ -21,67 +23,57 @@ double trip(double total_expenses){
         switch (option)
         {
         case 1:
-            total_expenses += get_Car_Rentals();
+            addTotalExpense(day, get_Car_Rentals());
             break;
         case 2:
-            total_expenses += get_Private_Vehicle_Used();
+            addTotalExpense(day, get_Private_Vehicle_Used());
             break;
         case 3:
-            total_expenses += get_Taxi_Fees();
+            addTotalExpense(day, get_Taxi_Fees());
+            taxi = true;
             break;
         case 4:
-            total_expenses += get_Parking_Fees();
+            addTotalExpense(day, get_Parking_Fees());
+            parking = true;
             break;
         case 5:
-            total_expenses += get_Round_Trip_Airfare();
+            addTotalExpense(day, get_Round_Trip_Airfare());
             break;
         }
     }
 
-    return total_expenses;
+    if(taxi == true)
+    {
+        addAllowedExpense(day, 10);
+    }
+
+    if(parking == true)
+    {
+        addAllowedExpense(day, 6);
+    }
 }
 
 double get_Car_Rentals(){
-    double carRentals;
-
     printf("How much was the car rental:\n");
-    scanf("%lf", &carRentals);
-
-    return carRentals;
+    return input_fee(MINIMUM_FEE);
 }
 
 double get_Private_Vehicle_Used(){
-    double gasCost;
-
     printf("How much was the gas:\n");
-    scanf("%lf", &gasCost);
-
-    return gasCost;
+    return input_fee(MINIMUM_FEE);
 }
 
 double get_Round_Trip_Airfare(){
-    double airplaneCost;
-
     printf("How much was the ticket:\n");
-    scanf("%lf", &airplaneCost);
-
-    return airplaneCost;
+    return input_fee(MINIMUM_FEE);
 }
 
 double get_Parking_Fees(){
-    double parkingFees;
-
     printf("How much was parking:\n");
-    scanf("%lf", &parkingFees);
-
-    return parkingFees;
+    return input_fee(MINIMUM_FEE);
 }
 
 double get_Taxi_Fees(){
-    double taxiFees;
-
     printf("How much was parking:\n");
-    scanf("%lf", &taxiFees);
-
-    return taxiFees;
+    return input_fee(MINIMUM_FEE);
 }

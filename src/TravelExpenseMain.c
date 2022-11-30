@@ -97,16 +97,16 @@ int main(int argc, char const *argv[]){
             if(i == 0)
             {
                 setTime((dayPtr + i));
-                setArrival((dayPtr + i), true);
-                setDeparture((dayPtr + i), false);
+                setArrival((dayPtr + i), false);
+                setDeparture((dayPtr + i), true);
                 setDayNum((dayPtr + i), (i+1));
             }
             else if(i == (numDays - 1))
             {
                 setDayNum((dayPtr + i), (i+1));
                 setTime((dayPtr + i));
-                setArrival((dayPtr + i), false);
-                setDeparture((dayPtr + i), true);          
+                setArrival((dayPtr + i), true);
+                setDeparture((dayPtr + i), false);          
             }
             else
             {
@@ -122,6 +122,9 @@ int main(int argc, char const *argv[]){
 
                 //Add Conference Fee
                 addTotalExpense((dayPtr + i), get_conference_fee());
+
+                //Add trip fees
+                trip((dayPtr + i));
         }
 
         for(int i = 0; i < numDays; i++)
