@@ -32,6 +32,6 @@ void get_Food_expenses(int total_meals,
                      double total_expenses,
                      double total_allowable_expenses,
                      double total_refund,
-                     double total_amount_saved)
+                     double total_amount_saved);
 
-#endif // FOOD_H;
+#endif // FOOD_H

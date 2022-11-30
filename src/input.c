@@ -1,5 +1,17 @@
 #include "../include/input.h"
 
+//Validate time input
+int validTime(int hours, int min)
+{
+    int ret = 0;
+    if(hours > 24 || min > 60 || hours == 24 && min > 0 || hours < 0 || min < 0)
+    {
+        ret = 1;
+    }
+
+    return ret;
+}
+
 char input_char( char letter){
     letter = getchar();
     while(!(toupper(letter) == 'Y' || toupper(letter) == 'N')){
@@ -18,13 +30,28 @@ int input_dec_number(int number){
     return number;
 }
 
-double input_time(double time){
-    scanf("%f", time);
-    while(time<0 || time > 23.59){
-        printf("Please enter the valid time!! \n");
-        scanf("%f", time);
+void input_time(Day * day){
+    char input[100] = {0};
+    int hour, min, validate = 1;
+    while(validate != 0)
+    {
+        printf("\nEnter the Arrival or departure time in \"HH:MM\" format: ");
+        fgets(input, 100, stdin);
+
+        sscanf(input, "%d:%d", &hour, &min);
+
+        validate = validTime(hour, min);
+
+        if(validate != 0)
+        {
+            printf("\nInvalid Time. . . please try again. . .\n");
+        }
+        else
+        {
+            day->hour = hour;
+            day->minutes = min;
+        }
     }
-    return time;
 }
 
 double input_fee(double minimum)

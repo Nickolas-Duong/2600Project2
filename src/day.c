@@ -1,40 +1,9 @@
 #include "../include/day.h"
-//Validate time input
-int validTime(int hours, int min)
-{
-    int ret = 0;
-    if(hours > 24 || min > 60 || hours == 24 && min > 0 || hours < 0 || min < 0)
-    {
-        ret = 1;
-    }
-
-    return ret;
-}
 
 //Set time for day via input
 void setTime(Day * day)
 {
-    char input[100] = {0};
-    int hour, min, validate = 1;
-    while(validate != 0)
-    {
-        printf("\nEnter the Arrival or departure time in \"HH:MM\" format: ");
-        fgets(input, 100, stdin);
-
-        sscanf(input, "%d:%d", &hour, &min);
-
-        validate = validTime(hour, min);
-
-        if(validate != 0)
-        {
-            printf("\nInvalid Time. . . please try again. . .\n");
-        }
-        else
-        {
-            day->hour = hour;
-            day->minutes = min;
-        }
-    }
+    input_time(day);
 }
 
 //Set Arrival bool
@@ -126,4 +95,14 @@ void printExpenses(Day * day)
 
     printf("Total Expenses: %.2f\n", getTotalExpense(day));
     printf("Allowed Expenses: %.2f\n", getAllowedExpense(day));
+    if(getAllowedExpense(day) >= getTotalExpense(day))
+    {
+        printf("Amount in excess: $0.00\n");
+        printf("Amount Saved: %.2f\n", (getAllowedExpense(day) - getTotalExpense(day)));
+    }
+    else
+    {
+        printf("Amount in excess: %.2f\n", (getTotalExpense(day) - getAllowedExpense(day)));
+        printf("Amount Saved: $0.00\n");
+    }
 }

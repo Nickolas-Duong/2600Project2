@@ -13,5 +13,5 @@ else
 	endif
 endif
 
-all: include/day.h src/day.c test/day/main.c
-	$(CC) -o test/day/test$(EXT) include/day.h src/day.c test/day/main.c
+all: include/day.h src/day.c test/TravelExpenseMain.c include/display.h include/Food.h include/hotel.h include/input.h include/trip.h src/display.c src/Food.c src/hotel.c src/input.c src/trip.c
+	$(CC) -o test$(EXT) include/day.h src/day.c test/TravelExpenseMain.c include/display.h include/Food.h include/hotel.h include/input.h include/trip.h src/display.c src/Food.c src/hotel.c src/input.c src/trip.c

@@ -9,7 +9,7 @@ void get_Food_expenses()
 
     do 
     {
-    get_each_meal_cost;
+    get_each_meal_cost();
     total_meals = total_meals - 1;
     } while (total_meals > 0);
   

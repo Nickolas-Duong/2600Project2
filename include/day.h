@@ -8,6 +8,8 @@
 #include <string.h>
 #include <stdarg.h>
 #include <stdbool.h>
+#include "../include/input.h"
+
 struct Day
 {
     int dayNum, hour, minutes;
@@ -19,7 +21,6 @@ struct Day
 
 typedef struct Day Day;
 
-int validTime(int hours, int min);
 void setTime(Day * day);
 void setArrival(Day * day, bool type);
 void setDeparture(Day * day, bool type);
