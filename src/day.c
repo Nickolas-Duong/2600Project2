@@ -83,7 +83,7 @@ void printExpenses(Day * day)
     else if(day->departure)
     {
         printf("The time of departure is: %02d:%02d", day->hour, day->minutes);
-                if(day->hour >=12)
+        if(day->hour >=12)
         {
             printf(" PM\n");
         }

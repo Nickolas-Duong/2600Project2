@@ -85,7 +85,7 @@ int main(int argc, char const *argv[]){
             return EXIT_FAILURE;
         }
         double totalCosts, totalAllowedCosts;
-        int dHour, dMin, aHour, aMin;
+        int dHour = 0, dMin = 0, aHour = 0, aMin = 0;
         Day *dayPtr = calloc(numDays, sizeof(Day));
 
         for(int i; i < numDays; i++)
@@ -101,14 +101,17 @@ int main(int argc, char const *argv[]){
                 setArrival((dayPtr + i), false);
                 setDeparture((dayPtr + i), true);
                 setDayNum((dayPtr + i), (i+1));
-                
+                dHour = getHour((dayPtr + i));
+                dMin = getMinute((dayPtr + i));
             }
             else if(i == (numDays - 1))
             {
                 setDayNum((dayPtr + i), (i+1));
                 setTime((dayPtr + i));
                 setArrival((dayPtr + i), true);
-                setDeparture((dayPtr + i), false);          
+                setDeparture((dayPtr + i), false);
+                aHour = getHour((dayPtr + i));
+                aMin = getMinute((dayPtr + i));          
             }
             else
             {
@@ -134,9 +137,11 @@ int main(int argc, char const *argv[]){
 
         for(int i = 0; i < numDays; i++)
         {
-            printExpenses((dayPtr + i));
+            totalCosts += getTotalExpense((dayPtr + i));
+            totalAllowedCosts += getAllowedExpense((dayPtr + i));
         }
 
+        display_total(numDays, dHour, dMin, aHour, aMin, totalCosts, totalAllowedCosts);
         free(dayPtr);
     }
 

@@ -38,6 +38,9 @@ int input_dec_number(){
 void input_time(Day * day){
     char input[100] = {0};
     int hour, min, validate = 1;
+
+    fflush(stdin);
+
     while(validate != 0)
     {
         printf("\nEnter the Arrival or departure time in \"HH:MM\" format: ");

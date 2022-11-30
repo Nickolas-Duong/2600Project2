@@ -8,11 +8,9 @@
 #include<ctype.h>
 
 void display_total(int total_days,     
-                   double departure_time, 
-                   double arrival_time, 
+                   int dHour, int dMin,
+                   int aHour, int aMin, 
                    double total_expenses, 
-                   double total_allowable_expenses, 
-                   double total_refund, 
-                   double total_amount_saved);
+                   double total_allowable_expenses);
 
 #endif // DISPLAY_H
