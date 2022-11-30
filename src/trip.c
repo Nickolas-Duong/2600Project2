@@ -59,7 +59,7 @@ double get_Car_Rentals(){
 }
 
 double get_Private_Vehicle_Used(){
-    printf("How many miles were driven? :\n");
+    printf("How many miles were driven:\n");
     return (0.27 * input_fee(MINIMUM_FEE));
 }
 
