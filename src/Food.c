@@ -4,8 +4,8 @@
 void get_Food_expenses(Day * day)
 {
     int total_meals;
-    printf("\n The company covers certain meals on the day of arrival and departure depending on time of arrival/departure. \n");
-    printf("\n Insert the number of meals for Day %d\n", getDayNum(day));
+    printf("\nThe company covers certain meals on the day of arrival and departure depending on time of arrival/departure. \n");
+    printf("\nInsert the number of meals for Day %d\n", getDayNum(day));
     total_meals = input_dec_number();
 
     get_each_meal_cost(day, total_meals);
@@ -69,6 +69,10 @@ void get_each_meal_cost(Day * day, int mealNum)
             dinner = true;
         }
 
+    }
+    else
+    {
+        addAllowedExpense(day, 37);
     }
 
     //loop and add costs
