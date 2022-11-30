@@ -5,11 +5,13 @@
 
 #include "../include/trip.h"
 
+//Trip menu
 void trip(Day * day){
     int option;
     bool taxi = false;
     bool parking = false;
 
+    //loop through menu till done
     while(option != 0){
         printf("Input the number of the option you would like to input:\n");
         printf("1 - Car Rental Cost\n");
@@ -42,6 +44,7 @@ void trip(Day * day){
         }
     }
 
+    //if certain options used, add to allowed expenses
     if(taxi == true)
     {
         addAllowedExpense(day, 10);
@@ -53,26 +56,31 @@ void trip(Day * day){
     }
 }
 
+//get car rental fee input
 double get_Car_Rentals(){
     printf("How much was the car rental:\n");
     return input_fee(MINIMUM_FEE);
 }
 
+//get private vehicle input
 double get_Private_Vehicle_Used(){
     printf("How many miles were driven:\n");
     return (0.27 * input_fee(MINIMUM_FEE));
 }
 
+//get airfare input
 double get_Round_Trip_Airfare(){
     printf("How much was the ticket:\n");
     return input_fee(MINIMUM_FEE);
 }
 
+//get parking input
 double get_Parking_Fees(){
     printf("How much was parking:\n");
     return input_fee(MINIMUM_FEE);
 }
 
+//get taxi input
 double get_Taxi_Fees(){
     printf("How much was the taxi:\n");
     return input_fee(MINIMUM_FEE);

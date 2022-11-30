@@ -1,5 +1,6 @@
 #include "../include/display.h"
 
+//Display total of trip function
 void display_total(int total_days,     
                    int dHour, int dMin,
                    int aHour, int aMin, 

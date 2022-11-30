@@ -12,6 +12,7 @@ int validTime(int hours, int min)
     return ret;
 }
 
+//get char input
 char input_char(){
     char letter = getchar();
 
@@ -23,6 +24,7 @@ char input_char(){
     return letter;
 }
 
+//get number input
 int input_dec_number(){
     int number;
 
@@ -35,6 +37,7 @@ int input_dec_number(){
     return number;
 }
 
+// get time input
 void input_time(Day * day){
     char input[100] = {0};
     int hour, min, validate = 1;
@@ -62,6 +65,7 @@ void input_time(Day * day){
     }
 }
 
+//get fee input
 double input_fee(double minimum)
 {
   double fee;

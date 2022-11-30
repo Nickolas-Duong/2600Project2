@@ -6,6 +6,8 @@
 #include "../include/trip.h"
 
 /*
+initial functions, used as a guideline
+
 // functions
 int get_trip_day(void); // input the number of day for the trip
 double get_departure_time(void); // input the departure time 
@@ -22,6 +24,9 @@ void get_meal_fee(double*, double, double*, double*, double*, double);
 
 int main(int argc, char const *argv[]){
     /*
+
+    initial set-up, used as a guideline
+    
     // variables for general information
     double total_expenses = 0, total_allowable_expenses = 0, total_refund = 0, total_amount_saved = 0;
     double departure_time, arrival_time;
@@ -59,16 +64,21 @@ int main(int argc, char const *argv[]){
     return EXIT_SUCCESS;
     */
 
+    //number of days
     int numDays = 0;
 
+    //if not enough arguments
     if (argc != 2)
     {
         printf("Error - Not Enough Arguments");
     }
+    //enough arguments
     else
     {
+        //make sure days is a number
         if(numberCheck(argv[1]) == true)
         {
+            //don't run if not a valid number
             if(atoi(argv[1]) < 1)
             {
                 printf("Error invalid command line argument... must be greater than 0");
@@ -76,25 +86,32 @@ int main(int argc, char const *argv[]){
                 return EXIT_FAILURE;
             }
 
+            //set number of days to command line input
             numDays = atoi(argv[1]);
         }
+        //don't run if it isn't a number
         else
         {
             printf("Error invalid command line argument... must be an int");
 
             return EXIT_FAILURE;
         }
+
+        // set variables
         double totalCosts, totalAllowedCosts;
         int dHour = 0, dMin = 0, aHour = 0, aMin = 0;
         Day *dayPtr = calloc(numDays, sizeof(Day));
 
+        //Set initial days to 0
         for(int i; i < numDays; i++)
         {
             setDayNum((dayPtr + i), 0);
         }
         
+        //Set all days
         for(int i = 0; i < numDays; i++)
-        {
+        {   
+            //set day of departure
             if(i == 0)
             {
                 setTime((dayPtr + i));
@@ -104,6 +121,7 @@ int main(int argc, char const *argv[]){
                 dHour = getHour((dayPtr + i));
                 dMin = getMinute((dayPtr + i));
             }
+            //set day of arrival
             else if(i == (numDays - 1))
             {
                 setDayNum((dayPtr + i), (i+1));
@@ -113,6 +131,7 @@ int main(int argc, char const *argv[]){
                 aHour = getHour((dayPtr + i));
                 aMin = getMinute((dayPtr + i));          
             }
+            //if a different day
             else
             {
                 setDayNum((dayPtr + i), (i+1));
@@ -135,13 +154,17 @@ int main(int argc, char const *argv[]){
             get_Food_expenses((dayPtr + i));
         }
 
+        //get all costs of each day
         for(int i = 0; i < numDays; i++)
         {
             totalCosts += getTotalExpense((dayPtr + i));
             totalAllowedCosts += getAllowedExpense((dayPtr + i));
         }
 
+        //Display overall trip
         display_total(numDays, dHour, dMin, aHour, aMin, totalCosts, totalAllowedCosts);
+        
+        //Free memory from dynamic array
         free(dayPtr);
     }
 

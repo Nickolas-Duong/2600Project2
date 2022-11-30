@@ -1,5 +1,6 @@
 #include "../include/Food.h"
 
+//Get food expenses
 void get_Food_expenses(Day * day)
 {
     int total_meals;
@@ -20,8 +21,10 @@ void total_allowed_meals()
 }
 */
 
+//get each meal cost loop
 void get_each_meal_cost(Day * day, int mealNum)
 {
+    //variables
     int temp = mealNum;
     char meal_type;
     double meal_cost;
@@ -29,6 +32,7 @@ void get_each_meal_cost(Day * day, int mealNum)
     bool lunch = false;
     bool dinner = false;
 
+    //if arrival or departure, set relevant bools to true based on time
     if(day->arrival == true)
     {
         if(day->minutes >= 0 && day->hour < 8 || day->minutes == 0 && day->hour == 8)
@@ -46,8 +50,6 @@ void get_each_meal_cost(Day * day, int mealNum)
             lunch = true;
             dinner = true;
         }
-
-
     }
     else if(day->departure == true)
     {
@@ -69,6 +71,7 @@ void get_each_meal_cost(Day * day, int mealNum)
 
     }
 
+    //loop and add costs
     do
     {
         
@@ -136,6 +139,7 @@ void get_each_meal_cost(Day * day, int mealNum)
         }
     }while (temp > 0);
 
+    //Add allowable expenses
     if(dinner == true && day->arrival == true && day->hour <= 19)
     {
         if(day->minutes >= 0 && day->hour != 19 || day->minutes == 0 && day->hour == 19)

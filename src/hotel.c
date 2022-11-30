@@ -1,11 +1,13 @@
 #include "../include/hotel.h"
 
+//Get cost of conference
 double get_conference_fee()
 {
   printf("Please enter conference or registration fee: (if none, type 0)\n");
   return input_fee(MINIMUM_FEE);
 }
 
+//get cost of hotel
 double get_hotel_fee()
 {
   double hotel_fee;
@@ -16,6 +18,8 @@ double get_hotel_fee()
 
   return hotel_fee;
   /*
+  initial code, used as a guideline
+  
   for (int i = 0; i < total_days - 1; i++)
   {
     *total_allowable_expenses += ALLOWABLE_HOTEL_EXPENSES;

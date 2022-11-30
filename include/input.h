@@ -1,14 +1,17 @@
 #ifndef INPUT_H
 #define INPUT_H
 
+//Headers
 #include<string.h> 
 #include<stdlib.h>
 #include<stdio.h>
 #include<ctype.h>
 #include "../include/day.h"
 
+//name Struct
 typedef struct Day Day;
 
+//Function declarations
 char input_char(); // handle yes no input
 int input_dec_number(); //handle the input for number of days or miles
 void input_time(Day * day); // 00:00 - 23:59: valid time

@@ -64,49 +64,7 @@ void addAllowedExpense(Day * day, double num)
     day->allowedExpenses += num;
 }
 
-//Show total expense of the day in terminal
-void printExpenses(Day * day)
-{
-    printf("Day %d\n", getDayNum(day));
-    if(day->arrival)
-    {
-        printf("The time of arrival is: %02d:%02d", day->hour, day->minutes);
-        if(day->hour >=12)
-        {
-            printf(" PM\n");
-        }
-        else
-        {
-            printf(" AM\n");
-        }
-    }
-    else if(day->departure)
-    {
-        printf("The time of departure is: %02d:%02d", day->hour, day->minutes);
-        if(day->hour >=12)
-        {
-            printf(" PM\n");
-        }
-        else
-        {
-            printf(" AM\n");
-        }
-    }
-
-    printf("Total Expenses: %.2f\n", getTotalExpense(day));
-    printf("Allowed Expenses: %.2f\n", getAllowedExpense(day));
-    if(getAllowedExpense(day) >= getTotalExpense(day))
-    {
-        printf("Amount in excess: $0.00\n");
-        printf("Amount Saved: %.2f\n", (getAllowedExpense(day) - getTotalExpense(day)));
-    }
-    else
-    {
-        printf("Amount in excess: %.2f\n", (getTotalExpense(day) - getAllowedExpense(day)));
-        printf("Amount Saved: $0.00\n");
-    }
-}
-
+//check if argv is a number
 bool numberCheck(const char number[])
 {
     int i = 0;
@@ -127,11 +85,13 @@ bool numberCheck(const char number[])
     return true;
 }
 
+//get hour of struct
 int getHour(Day * day)
 {
     return day->hour;
 }
 
+//get minute of struct
 int getMinute(Day * day)
 {
     return day->minutes;
