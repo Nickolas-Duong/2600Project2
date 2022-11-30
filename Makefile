@@ -14,4 +14,7 @@ else
 endif
 
 all: include/day.h src/day.c src/TravelExpenseMain.c include/display.h include/Food.h include/hotel.h include/input.h include/trip.h src/display.c src/hotel.c src/input.c src/trip.c src/Food.c
-	$(CC) -o test$(EXT) include/day.h src/day.c src/TravelExpenseMain.c include/display.h include/hotel.h include/input.h include/trip.h src/display.c src/hotel.c src/input.c src/trip.c include/Food.h src/Food.c
+	$(CC) -o project$(EXT) include/day.h src/day.c src/TravelExpenseMain.c include/display.h include/hotel.h include/input.h include/trip.h src/display.c src/hotel.c src/input.c src/trip.c include/Food.h src/Food.c
+
+delete: project$(EXT)
+	$(DELETE) project$(EXT)
