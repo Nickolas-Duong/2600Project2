@@ -1,13 +1,14 @@
 #ifndef DAY_H
 #define DAY_H
 
-//Max day SIZE
-#define DAY_SIZE 8
-
+//Headers
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
 #include <stdbool.h>
+#include "../include/input.h"
+
+//Struct
 struct Day
 {
     int dayNum, hour, minutes;
@@ -17,9 +18,10 @@ struct Day
 
 };
 
+//name struct
 typedef struct Day Day;
 
-int validTime(int hours, int min);
+//function declarations
 void setTime(Day * day);
 void setArrival(Day * day, bool type);
 void setDeparture(Day * day, bool type);
@@ -31,6 +33,7 @@ void addTotalExpense(Day * day, double num);
 void setAllowedExpense(Day * day, double d);
 double getAllowedExpense(Day * day);
 void addAllowedExpense(Day*  day, double num);
-void printExpenses(Day * day);
-
+bool numberCheck(const char number[]);
+int getHour(Day * day);
+int getMinute(Day * day);
 #endif

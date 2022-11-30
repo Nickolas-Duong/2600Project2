@@ -5,6 +5,7 @@
 #ifndef Food_H
 #define Food_H
 
+//Headers
 #include<string.h> 
 #include<stdlib.h>
 #include<stdio.h>
@@ -13,25 +14,17 @@
 #include "input.h"
 #include "day.h"
 
+//name Struct
+typedef struct Day Day;
+
+//Constant numbers
 #define MINIMUM_FEE 0.00
 #define ALLOWABLE_BREAKFAST 9.00
 #define ALLOWABLE_LUNCH 12.00
 #define ALLOWABLE_DINNER 16.00
 
-double total_meals;
-char meal_type;
-double meal_cost;
-double total_expenses;
-double total_allowable_expenses;
-double total_refund;
+//function declarations
+void get_each_meal_cost(Day * Day, int mealNum);
+void get_Food_expenses(Day * day);
 
-
-char get_Meal_type();
-void get_Food_expenses(int total_meals,
-                       int total_allowed_meals, 
-                     double total_expenses,
-                     double total_allowable_expenses,
-                     double total_refund,
-                     double total_amount_saved)
-
-#endif // FOOD_H;
+#endif // FOOD_H

@@ -1,40 +1,9 @@
 #include "../include/day.h"
-//Validate time input
-int validTime(int hours, int min)
-{
-    int ret = 0;
-    if(hours > 24 || min > 60 || hours == 24 && min > 0 || hours < 0 || min < 0)
-    {
-        ret = 1;
-    }
-
-    return ret;
-}
 
 //Set time for day via input
 void setTime(Day * day)
 {
-    char input[100] = {0};
-    int hour, min, validate = 1;
-    while(validate != 0)
-    {
-        printf("\nEnter the Arrival or departure time in \"HH:MM\" format: ");
-        fgets(input, 100, stdin);
-
-        sscanf(input, "%d:%d", &hour, &min);
-
-        validate = validTime(hour, min);
-
-        if(validate != 0)
-        {
-            printf("\nInvalid Time. . . please try again. . .\n");
-        }
-        else
-        {
-            day->hour = hour;
-            day->minutes = min;
-        }
-    }
+    input_time(day);
 }
 
 //Set Arrival bool
@@ -95,35 +64,35 @@ void addAllowedExpense(Day * day, double num)
     day->allowedExpenses += num;
 }
 
-//Show total expense of the day in terminal
-void printExpenses(Day * day)
+//check if argv is a number
+bool numberCheck(const char number[])
 {
-    printf("Day %d\n", getDayNum(day));
-    if(day->arrival)
+    int i = 0;
+
+    if(number[0] == '-')
     {
-        printf("The time of arrival is: %02d:%02d", day->hour, day->minutes);
-        if(day->hour >=12)
-        {
-            printf(" PM\n");
-        }
-        else
-        {
-            printf(" AM\n");
-        }
+        i = 1;
     }
-    else if(day->departure)
+
+    for(i; number[i] != 0; i++)
     {
-        printf("The time of departure is: %02d:%02d", day->hour, day->minutes);
-                if(day->hour >=12)
+        if(!isdigit(number[i]))
         {
-            printf(" PM\n");
-        }
-        else
-        {
-            printf(" AM\n");
+            return false;
         }
     }
 
-    printf("Total Expenses: %.2f\n", getTotalExpense(day));
-    printf("Allowed Expenses: %.2f\n", getAllowedExpense(day));
+    return true;
+}
+
+//get hour of struct
+int getHour(Day * day)
+{
+    return day->hour;
+}
+
+//get minute of struct
+int getMinute(Day * day)
+{
+    return day->minutes;
 }
