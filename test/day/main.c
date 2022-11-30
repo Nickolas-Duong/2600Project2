@@ -6,15 +6,12 @@ int main(int argc, char * argv[])
     int numDays = atoi(argv[1]);
     
     Day days[DAY_SIZE];
-    Day *dayPtr = days;
+    Day *dayPtr = calloc(numDays, sizeof(Day));
 
-    for(int i; i < DAY_SIZE; i++)
+    for(int i; i < numDays; i++)
     {
-        setDayNum(dayPtr, 0);
-        dayPtr++;
+        setDayNum((dayPtr + i), 0);
     }
-
-    dayPtr = days;
 
     if (argc != 2)
     {
@@ -26,34 +23,31 @@ int main(int argc, char * argv[])
         {
             if(i % 2 == 0)
             {
-                setTime(dayPtr);
-                setArrival(dayPtr, true);
-                setDeparture(dayPtr, false);
-                setDayNum(dayPtr, (i+1));
-                setTotalExpense(dayPtr, 10.0);
-                setAllowedExpense(dayPtr, 2.0);
-                dayPtr++;
+                setTime((dayPtr + i));
+                setArrival((dayPtr + i), true);
+                setDeparture((dayPtr + i), false);
+                setDayNum((dayPtr + i), (i+1));
+                setTotalExpense((dayPtr + i), 10.0);
+                setAllowedExpense((dayPtr + i), 2.0);
             }
             else
             {
-                setDayNum(dayPtr, (i+1));
-                setTime(dayPtr);
-                setArrival(dayPtr, false);
-                setDeparture(dayPtr, true);
-                addTotalExpense(dayPtr, 10.5);
-                addTotalExpense(dayPtr, 60.7);
-                addAllowedExpense(dayPtr, 10.5);
-                dayPtr++;
+                setDayNum((dayPtr + i), (i+1));
+                setTime((dayPtr + i));
+                setArrival((dayPtr + i), false);
+                setDeparture((dayPtr + i), true);
+                addTotalExpense((dayPtr + i), 10.5);
+                addTotalExpense((dayPtr + i), 60.7);
+                addAllowedExpense((dayPtr + i), 10.5);            
             }
         }
 
-        dayPtr = days;
-
         for(int i = 0; i < numDays; i++)
         {
-            printExpenses(dayPtr);
-            dayPtr++;
+            printExpenses((dayPtr + i));
         }
+
+        free(dayPtr);
     }
 
     return EXIT_SUCCESS;
