@@ -14,6 +14,8 @@ int validTime(int hours, int min)
 
 //get char input
 char input_char(){
+    fflush(stdin);
+
     char letter = getchar();
 
     while(!isalpha(letter)){

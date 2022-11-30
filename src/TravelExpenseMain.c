@@ -66,7 +66,7 @@ int main(int argc, char const *argv[]){
 
     //number of days
     int numDays = 0;
-
+    double conf = 0;
     //if not enough arguments
     if (argc != 2)
     {
@@ -145,7 +145,9 @@ int main(int argc, char const *argv[]){
             addAllowedExpense((dayPtr + i), ALLOWABLE_HOTEL_EXPENSES);
 
             //Add Conference Fee
-            addTotalExpense((dayPtr + i), get_conference_fee());
+            conf = get_conference_fee();
+            addTotalExpense((dayPtr + i), conf);
+            addAllowedExpense((dayPtr + i), conf);
 
             //Add trip fees
             trip((dayPtr + i));

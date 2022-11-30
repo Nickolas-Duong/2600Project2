@@ -25,10 +25,15 @@ void trip(Day * day){
         switch (option)
         {
         case 1:
-            addTotalExpense(day, get_Car_Rentals());
+            double rental;
+            rental = get_Car_Rentals();
+            addTotalExpense(day, rental);
+            addAllowedExpense(day, rental);
             break;
         case 2:
-            addTotalExpense(day, get_Private_Vehicle_Used());
+            double miles = get_Private_Vehicle_Used();
+            addTotalExpense(day, miles);
+            addAllowedExpense(day, miles);
             break;
         case 3:
             addTotalExpense(day, get_Taxi_Fees());
@@ -39,7 +44,9 @@ void trip(Day * day){
             parking = true;
             break;
         case 5:
-            addTotalExpense(day, get_Round_Trip_Airfare());
+            double airfare = get_Round_Trip_Airfare();
+            addTotalExpense(day, airfare);
+            addAllowedExpense(day, airfare);
             break;
         }
     }
