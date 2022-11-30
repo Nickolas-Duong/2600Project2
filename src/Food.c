@@ -14,7 +14,15 @@ void get_Food_expenses()
     } while (total_meals > 0);
   
 }
+/*
+void total_allowed_meals()
+{
+    if () 
+    {
 
+    }
+}
+*/
 
 void get_each_meal_cost()
 {
