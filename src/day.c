@@ -106,3 +106,23 @@ void printExpenses(Day * day)
         printf("Amount Saved: $0.00\n");
     }
 }
+
+bool numberCheck(const char number[])
+{
+    int i = 0;
+
+    if(number[0] == '-')
+    {
+        i = 1;
+    }
+
+    for(i; number[i] != 0; i++)
+    {
+        if(!isdigit(number[i]))
+        {
+            return false;
+        }
+    }
+
+    return true;
+}

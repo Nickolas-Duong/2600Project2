@@ -6,16 +6,16 @@ double get_conference_fee()
   return input_fee(MINIMUM_FEE);
 }
 
-void get_hotel_fee(int total_days, 
-                     double *total_expenses,
-                     double *total_allowable_expenses,
-                     double *total_refund,
-                     double *total_amount_saved)
+double get_hotel_fee()
 {
   double hotel_fee;
 
   printf("The company only allows up to $%0.2lf per night for lodging.\n", ALLOWABLE_HOTEL_EXPENSES);
   
+  hotel_fee = input_fee(MINIMUM_FEE);
+
+  return hotel_fee;
+  /*
   for (int i = 0; i < total_days - 1; i++)
   {
     *total_allowable_expenses += ALLOWABLE_HOTEL_EXPENSES;
@@ -30,4 +30,5 @@ void get_hotel_fee(int total_days,
     else
       *total_amount_saved += hotel_fee;
   }
+  */
 }

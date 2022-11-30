@@ -1,9 +1,11 @@
-#include<string.h> 
-#include<stdlib.h>
-#include<stdio.h>
-#include<ctype.h>
- 
+#include "../include/day.h"
+#include "../include/display.h"
+//#include "../include/Food.h"
+#include "../include/hotel.h"
+#include "../include/input.h"
+#include "../include/trip.h"
 
+/*
 // functions
 int get_trip_day(void); // input the number of day for the trip
 double get_departure_time(void); // input the departure time 
@@ -16,8 +18,10 @@ void get_taxi_fee(int, double*, double*, double*, double* );
 double get_conference_fee(void);
 void get_hotel_fee(int, double*, double*, double*, double* );
 void get_meal_fee(double*, double, double*, double*, double*, double);
+*/
 
 int main(int argc, char const *argv[]){
+    /*
     // variables for general information
     double total_expenses = 0, total_allowable_expenses = 0, total_refund = 0, total_amount_saved = 0;
     double departure_time, arrival_time;
@@ -52,6 +56,81 @@ int main(int argc, char const *argv[]){
                   total_refund, 
                   total_amount_saved);
 
-    return 0;
+    return EXIT_SUCCESS;
+    */
+
+    int numDays = 0;
+
+    if(numberCheck(argv[1]) == true)
+    {
+        if(atoi(argv[1]) < 1)
+        {
+            printf("Error invalid command line argument... must be greater than 0");
+
+            return EXIT_FAILURE;
+        }
+
+        numDays = atoi(argv[1]);
+    }
+    else
+    {
+        printf("Error invalid command line argument... must be an int");
+
+        return EXIT_FAILURE;
+    }
+    
+    Day *dayPtr = calloc(numDays, sizeof(Day));
+
+    for(int i; i < numDays; i++)
+    {
+        setDayNum((dayPtr + i), 0);
+    }
+
+    if (argc != 2)
+    {
+        printf("Error - Not Enough Arguments");
+    }
+    else
+    {
+        for(int i = 0; i < numDays; i++)
+        {
+            if(i == 0)
+            {
+                setTime((dayPtr + i));
+                setArrival((dayPtr + i), true);
+                setDeparture((dayPtr + i), false);
+                setDayNum((dayPtr + i), (i+1));
+            }
+            else if(i == (numDays - 1))
+            {
+                setDayNum((dayPtr + i), (i+1));
+                setTime((dayPtr + i));
+                setArrival((dayPtr + i), false);
+                setDeparture((dayPtr + i), true);          
+            }
+            else
+            {
+                setDayNum((dayPtr + i), (i+1));
+                setTime((dayPtr + i));
+                setArrival((dayPtr + i), false);
+                setDeparture((dayPtr + i), false);
+            }
+                //Add hotel fees
+                printf("Enter fee for night #%d\n", i+1);
+                addTotalExpense((dayPtr + i), get_hotel_fee());
+                addAllowedExpense((dayPtr + i), ALLOWABLE_HOTEL_EXPENSES);
+
+                //Add Conference Fee
+                addTotalExpense((dayPtr + i), get_conference_fee());
+        }
+
+        for(int i = 0; i < numDays; i++)
+        {
+            printExpenses((dayPtr + i));
+        }
+
+        free(dayPtr);
+    }
+
 }
 
