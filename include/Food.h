@@ -11,6 +11,7 @@
 #include<ctype.h>
 
 #include "input.h"
+#include "day.h"
 
 #define MINIMUM_FEE 0.00
 #define ALLOWABLE_BREAKFAST 9.00
