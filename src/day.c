@@ -126,3 +126,13 @@ bool numberCheck(const char number[])
 
     return true;
 }
+
+int getHour(Day * day)
+{
+    return day->hour;
+}
+
+int getMinute(Day * day)
+{
+    return day->minutes;
+}

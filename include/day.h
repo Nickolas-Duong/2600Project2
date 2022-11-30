@@ -31,5 +31,6 @@ double getAllowedExpense(Day * day);
 void addAllowedExpense(Day*  day, double num);
 void printExpenses(Day * day);
 bool numberCheck(const char number[]);
-
+int getHour(Day * day);
+int getMinute(Day * day);
 #endif

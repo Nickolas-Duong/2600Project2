@@ -103,59 +103,74 @@ void get_each_meal_cost(Day * day, int mealNum)
         }
     }while (temp > 0);
 
-    if(dinner == true && day->arrival == true && day->hour <= 19 && day->minutes == 0)
+    if(dinner == true && day->arrival == true && day->hour <= 19)
     {
-        addAllowedExpense(day, ALLOWABLE_DINNER);
-        if(lunch == true)
+        if(day->minutes >= 0 && day->hour != 19 || day->minutes == 0 && day->hour == 19)
         {
-            addAllowedExpense(day, ALLOWABLE_LUNCH);
-        }
+            addAllowedExpense(day, ALLOWABLE_DINNER);
+            if(lunch == true)
+            {
+                addAllowedExpense(day, ALLOWABLE_LUNCH);
+            }
 
-        if(breakfast == true)
-        {
-            addAllowedExpense(day, ALLOWABLE_BREAKFAST);
+            if(breakfast == true)
+            {
+                addAllowedExpense(day, ALLOWABLE_BREAKFAST);
+            }
         }
     }
-    else if(dinner == true && day->departure == true && day->hour <= 18 && day->minutes == 0)
+    else if(dinner == true && day->departure == true && day->hour <= 18)
     {
-        printf("Dinner Expenses\n");
-        addAllowedExpense(day, ALLOWABLE_DINNER);
-        if(lunch == true)
+        if(day->minutes >= 0 && day->hour != 18 || day->minutes == 0 && day->hour == 18)
         {
-            addAllowedExpense(day, ALLOWABLE_LUNCH);
-        }
+            addAllowedExpense(day, ALLOWABLE_DINNER);
+            if(lunch == true)
+            {
+                addAllowedExpense(day, ALLOWABLE_LUNCH
+                );
+            }
 
-        if(breakfast == true)
-        {
-            addAllowedExpense(day, ALLOWABLE_BREAKFAST);
+            if(breakfast == true)
+            {
+                addAllowedExpense(day, ALLOWABLE_BREAKFAST);
+            }
         }
     }
 
     if(lunch == true && day->arrival == true && day->hour <= 13)
     {
-        addAllowedExpense(day, ALLOWABLE_LUNCH);
-
-        if(breakfast == true)
+        if(day->minutes >= 0 && day->hour != 13 || day->minutes == 0 && day->hour == 13)
         {
-            addAllowedExpense(day, ALLOWABLE_BREAKFAST);
+            addAllowedExpense(day, ALLOWABLE_LUNCH);
+
+            if(breakfast == true)
+            {
+                addAllowedExpense(day, ALLOWABLE_BREAKFAST);
+            }
         }
     }
     else if(lunch == true && day->departure == true && day->hour <= 12)
     {
-        addAllowedExpense(day, ALLOWABLE_LUNCH);
-
-        if(breakfast == true)
+        if(day->minutes >= 0 && day->hour != 12 || day->minutes == 0 && day->hour == 12)
         {
-            addAllowedExpense(day, ALLOWABLE_BREAKFAST);
+            addAllowedExpense(day, ALLOWABLE_LUNCH);
+
+            if(breakfast == true)
+            {
+                addAllowedExpense(day, ALLOWABLE_BREAKFAST);
+            }
         }
+    
     }
 
     if(breakfast == true && day->arrival == true && day->hour <= 8)
     {
-        addAllowedExpense(day, ALLOWABLE_BREAKFAST);
+        if(day->minutes >= 0 && day->hour != 8 || day->minutes == 0 && day->hour == 8)
+            addAllowedExpense(day, ALLOWABLE_BREAKFAST);
     }
     else if(breakfast == true && day->departure == true && day->hour <= 7)
     {
-        addAllowedExpense(day, ALLOWABLE_BREAKFAST);
+        if(day->minutes >= 0 && day->hour != 7 || day->minutes == 0 && day->hour == 7)
+            addAllowedExpense(day, ALLOWABLE_BREAKFAST);
     }
 }
