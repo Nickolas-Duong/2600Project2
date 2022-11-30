@@ -13,7 +13,7 @@ void trip(Day * day){
     while(option != 0){
         printf("Input the number of the option you would like to input:\n");
         printf("1 - Car Rental Cost\n");
-        printf("2 - Gas Cost\n");
+        printf("2 - Miles Cost\n");
         printf("3 - Taxi Cost\n");
         printf("4 - Parking Fees\n");
         printf("5 - Airfare Cost\n");
@@ -59,8 +59,8 @@ double get_Car_Rentals(){
 }
 
 double get_Private_Vehicle_Used(){
-    printf("How much was the gas:\n");
-    return input_fee(MINIMUM_FEE);
+    printf("How many miles were driven? :\n");
+    return (0.27 * input_fee(MINIMUM_FEE));
 }
 
 double get_Round_Trip_Airfare(){

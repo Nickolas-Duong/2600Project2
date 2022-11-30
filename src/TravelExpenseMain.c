@@ -61,37 +61,37 @@ int main(int argc, char const *argv[]){
 
     int numDays = 0;
 
-    if(numberCheck(argv[1]) == true)
-    {
-        if(atoi(argv[1]) < 1)
-        {
-            printf("Error invalid command line argument... must be greater than 0");
-
-            return EXIT_FAILURE;
-        }
-
-        numDays = atoi(argv[1]);
-    }
-    else
-    {
-        printf("Error invalid command line argument... must be an int");
-
-        return EXIT_FAILURE;
-    }
-    
-    Day *dayPtr = calloc(numDays, sizeof(Day));
-
-    for(int i; i < numDays; i++)
-    {
-        setDayNum((dayPtr + i), 0);
-    }
-
     if (argc != 2)
     {
         printf("Error - Not Enough Arguments");
     }
     else
     {
+        if(numberCheck(argv[1]) == true)
+        {
+            if(atoi(argv[1]) < 1)
+            {
+                printf("Error invalid command line argument... must be greater than 0");
+
+                return EXIT_FAILURE;
+            }
+
+            numDays = atoi(argv[1]);
+        }
+        else
+        {
+            printf("Error invalid command line argument... must be an int");
+
+            return EXIT_FAILURE;
+        }
+    
+        Day *dayPtr = calloc(numDays, sizeof(Day));
+
+        for(int i; i < numDays; i++)
+        {
+            setDayNum((dayPtr + i), 0);
+        }
+        
         for(int i = 0; i < numDays; i++)
         {
             if(i == 0)
@@ -115,16 +115,17 @@ int main(int argc, char const *argv[]){
                 setArrival((dayPtr + i), false);
                 setDeparture((dayPtr + i), false);
             }
-                //Add hotel fees
-                printf("Enter fee for night #%d\n", i+1);
-                addTotalExpense((dayPtr + i), get_hotel_fee());
-                addAllowedExpense((dayPtr + i), ALLOWABLE_HOTEL_EXPENSES);
 
-                //Add Conference Fee
-                addTotalExpense((dayPtr + i), get_conference_fee());
+            //Add hotel fees
+            printf("Enter fee for night #%d\n", i+1);
+            addTotalExpense((dayPtr + i), get_hotel_fee());
+            addAllowedExpense((dayPtr + i), ALLOWABLE_HOTEL_EXPENSES);
 
-                //Add trip fees
-                trip((dayPtr + i));
+            //Add Conference Fee
+            addTotalExpense((dayPtr + i), get_conference_fee());
+
+            //Add trip fees
+            trip((dayPtr + i));
         }
 
         for(int i = 0; i < numDays; i++)
