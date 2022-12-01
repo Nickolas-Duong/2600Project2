@@ -1,6 +1,6 @@
 #include "../include/day.h"
 #include "../include/display.h"
-#include "../include/Food.h"
+#include "../include/food.h"
 #include "../include/hotel.h"
 #include "../include/input.h"
 #include "../include/trip.h"

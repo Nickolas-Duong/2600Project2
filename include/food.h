@@ -2,8 +2,8 @@
     Created by Aliuddin Khaja
 */
 
-#ifndef Food_H
-#define Food_H
+#ifndef FOOD_H
+#define FOOD_H
 
 //Headers
 #include<string.h> 

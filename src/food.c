@@ -1,4 +1,4 @@
-#include "../include/Food.h"
+#include "../include/food.h"
 
 //Get food expenses
 void get_Food_expenses(Day * day)
